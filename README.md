@@ -24,3 +24,4 @@ Things you may want to cover:
 * ...
 # lec7
 # lec8
+# lec8.1
