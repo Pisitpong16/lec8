@@ -1,0 +1,30 @@
+<p> average score =
+<%=
+    @avg
+    
+%></p>
+<p> max score subject =
+<%=
+    @max_subject
+    
+%></p>
+<style>
+table, th, td{
+    border:1px solid black;
+}
+</style>
+<table>
+    <th>Subject</th>
+    <th>Score</th>
+    <th>Edit</th>
+    <th>Delete</th>
+    <% @student.scores.each do |s| %>
+        <tr>
+            <td><%= s.subject %></td>
+            <td><%= s.point %></td>
+            <td><%= link_to 'EDIT', '/scores/' + s.id.to_s + '/edit?from_student_id='+ @student.id.to_s %></td>
+            <td><%= button_to "Delete", s, method: :delete %></td>
+        </tr>
+    <%end%>
+</table>
+<%= link_to 'NEW SUBJECT', '/scores/new?from_student_id='+ @student.id.to_s %>
